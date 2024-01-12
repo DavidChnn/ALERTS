@@ -4,6 +4,8 @@ import 'package:alerts/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'home_page.dart';
+
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -32,6 +34,7 @@ class _SignInState extends State<SignIn> {
               Navigator.pop(context);
             }),
       ),
+      // TODO : Perbaiki tampilan berikut ini
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -52,6 +55,8 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   const SizedBox(height: 24.0),
+
+                  // TODO : Buat perpindahan antara sign in dan sign up
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -83,9 +88,9 @@ class _SignInState extends State<SignIn> {
                   ),
                   const SizedBox(height: 24.0),
                   const TextField(
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
-                      hintText: 'Username',
+                      hintText: 'Phone Number',
                     ),
                     style: TextStyle(
                       fontSize: 20.0,
@@ -113,7 +118,14 @@ class _SignInState extends State<SignIn> {
                             ),
                             elevation: MaterialStatePropertyAll(5.0),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomePage(),
+                              ),
+                            );
+                          },
                           child: const SizedBox(
                             width: double.maxFinite,
                             child: Text(
